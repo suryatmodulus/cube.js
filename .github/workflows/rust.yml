@@ -164,6 +164,9 @@ jobs:
         if: ${{ startsWith(matrix.os, 'windows') }}
         with:
           OPENSSL_DIR: 'C:/vcpkg/packages/openssl_x64-windows'
+          # This paths are required to work with static linking
+          OPENSSL_LIB_DIR: 'C:/vcpkg/packages/openssl_x64-windows/lib'
+          OPENSSL_INCLUDE_DIR: 'C:/vcpkg/packages/openssl_x64-windows/include'
       # https://github.com/actions-rs/cargo/issues/6
       #- uses: actions-rs/cargo@v1
       - uses: marcopolo/cargo@master
